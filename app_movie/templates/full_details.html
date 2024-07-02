@@ -1,0 +1,61 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block title %}
+<title>{{data.Movie_Title}}-movie review</title>
+{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/full_details.css' %}">
+{% endblock %}
+{% block home %} <br><br>
+<h1 class="Movie_title">-<span>{{data.Movie_Title}} </span> Full Movie Review-</h1> <br><br>
+<div class="full_details">
+    <div id="img-container">
+        <img loading="lazy" src="{{data.Movie_Poster.url}}" alt="" width="100%" title="{{data.Movie_Title}}">
+    </div> <br><br>
+    <div class="other-details">
+        <h4 class="one-line-story"> <span style="color: rgba(255, 0, 0, 0.877);">One Line Story:</span> {{data.Movie_OneLine_Story}}</h4> <hr> <br><br>
+    <h4 class="release-date"> <span style="color: rgba(255, 0, 0, 0.862);">Release date:</span> {{data.Movie_Release_date}}</h4>
+    <h4 class="review-on"><span style="color: rgba(255, 0, 0, 0.847);">Review on:</span> {{data.Movie_Review_on}}</h4> <br><br>
+    <h4 style="font-size: xx-large; font-style: italic; font-weight: bolder; text-align: center;"><span style="color: rgba(255, 0, 0, 0.837);">Full Review:👇</span> </h4>
+    <p class="full-review">{{data.Movies_Review}}</p>
+    <h4 class="movie-rating"><span style="color: rgba(255, 0, 0, 0.798);">Movie Rating:</span> {{data.Movie_Rating}}/5</h4>
+    </div> <br>
+    <div class="more-details">
+        <a href="https://www.imdb.com/find?q={{data.Movie_Title}}" target="_blank">Watch More...</a>
+    </div>
+    <br>
+    <h2 style="color: rgba(255, 0, 0, 0.785); font-size: 3em; text-align: center; text-transform: capitalize;">Watch Trailer 👇</h2>
+    <div class="movie-trailer">
+        {{data.Movie_Trailer_link|safe}}
+    </div>
+</div> <br> <br>
+<h1 class="comment-title">Add Comment ✍</h1> <br>
+<form action="" method="post" class="formm">
+    {% csrf_token %}
+    <table>
+        {{cmt_form.as_table}}
+    </table>
+    <input type="submit" value="Comment" id="button">
+</form>
+<hr>
+<h2 style="color: #fff; padding-left: 20px; text-align: center;">Total <span style="color: cornflowerblue;">{{comments|length}}</span> Comments</h2>
+<hr>
+<div class="comments"> 
+    <div>
+        {% for i in comments %}
+    <hr><h3><span style="color: cornflowerblue;">👦User_name: </span> {{i.User_name}} </h3>
+    <h4><span style="color: cornflowerblue;">✍Comment: </span> {{i.Comment}} </h4>
+    <h4><span style="color: cornflowerblue;">⭐Rating : </span> {{i.Rating}} / 5</h4> 
+    {% endfor %}
+    </div>
+</div>
+</div>
+<script src="https://kit.fontawesome.com/fa98085b76.js"
+      crossorigin="anonymous"></script>
+{% endblock %}
+{% block script %}
+<script defer src="{% static 'js/full_details.js' %}"></script>
+{% endblock %}
+
+
+    

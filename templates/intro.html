@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap");
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Playwrite DE Grund", cursive;
+    }
+    .vidoe-container {
+      border: 1px solid black;
+      height: 99vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    video {
+      width: 100%;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+  </style>
+  <body>
+    <div>
+      <div class="vidoe-container">
+        <video
+          autoplay
+          loop
+          src="../static/vid/Welcome-Intro-Video_21.mp4"
+          type="mp4"
+          class="vid"
+        ></video>
+      </div>
+    </div>
+    <script defer>
+      document.querySelector("video").removeAttribute("muted");
+      setTimeout(function () {
+        localStorage.setItem("showAlert", "true");
+        location.href = "/main/";
+      }, 8000);
+    </script>
+    <script
+      src="https://kit.fontawesome.com/fa98085b76.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

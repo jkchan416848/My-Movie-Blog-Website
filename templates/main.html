@@ -1,0 +1,25 @@
+{% extends 'navigation.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %}
+    <title>Main-page</title>
+    {% endblock%} {% block link %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    {% endblock %}
+  </head>
+  <body>
+    {% block home %} {% include 'home.html' %} {% endblock %} {% block script %}
+    <script defer>
+      if (localStorage.getItem("showAlert") === "true") {
+        alert("Welcome {{user}}😃");
+        localStorage.removeItem("showAlert");
+      }
+    </script>
+    <script defer src="{% static 'js/main.js' %}"></script>
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,193 @@
+body {
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0px;
+  padding: 0px;
+  scroll-behavior: smooth;
+  background-image: linear-gradient(to top, #000000, #0b0824);
+  background-size: 350% 350%;
+  animation: colors 15s ease-in-out infinite;
+}
+@keyframes colors {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+#Movie_card {
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  display: inline-flex;
+  padding-bottom: 10px;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #f0dbdb;
+  font-size: medium;
+  transition: 1s;
+}
+#Movie_card:hover {
+  background-color: black;
+  transform: scale(1.1);
+}
+#Movie_card:hover div {
+  width: 230px;
+}
+h1 {
+  text-align: center;
+}
+#Movie_card div {
+  border: 1px solid rgba(0, 0, 0, 0);
+  width: 210px;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  transform: scale(0.95);
+  transition: 0.4s;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#Movie_card a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  transition: 0.3s;
+  background: linear-gradient(
+    to top,
+    rgba(255, 0, 0, 0.342),
+    rgba(255, 0, 0, 0.705)
+  );
+}
+#Movie_card a:hover {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 132, 255, 0.342),
+    rgba(0, 132, 255, 0.705)
+  );
+  transform: translateY(-3px) scale(1.05);
+}
+#Movie_card h3 {
+  text-align: justify;
+  font-weight: 400;
+}
+.main_movie_card {
+  border: 1px solid rgba(0, 0, 0, 0);
+  display: flex;
+  border: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 50px;
+  column-gap: 15px;
+  padding: 0px 70px 0px 70px;
+  justify-content: space-evenly;
+}
+.home-page-heading {
+  color: #ede5e5;
+}
+#random-images {
+  border: 1px solid #ffffff00;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#random-images div {
+  border: 1px solid rgba(0, 0, 0, 0);
+  height: 85vh;
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 75%;
+  background: transparent;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.8s;
+  transition-timing-function: ease-out;
+}
+#random-images div .gradient-overlay {
+  position: absolute;
+  width: 75%;
+  height: 85%;
+  border: none;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.8s;
+  transition-timing-function: ease-out;
+  background-size: 100% 100%;
+  background: radial-gradient(circle, black, transparent);
+}
+#random-images div .gradient-overlay:hover {
+  filter: opacity(90%);
+}
+#random-images div .gradient-overlay h1 {
+  color: rgb(241, 234, 234);
+  font-size: xx-large;
+}
+#random-images .gradient-overlay a {
+  text-decoration: none;
+  color: #ffffff;
+  border: 1px solid #ff000000;
+  padding: 3px;
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: red;
+}
+#random-images .gradient-overlay a:hover {
+  transform: translateY(-5px) scale(1.1);
+  background-color: rgb(25, 75, 168);
+}
+#random-images .gradient-overlay a:active {
+  transform: scale(0.95);
+}
+.hidden {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all ease 0.8s;
+  transition-delay: 0.5s;
+}
+.hidden:nth-child(odd) {
+  transition-delay: 00ms;
+}
+.hidden:nth-child(even) {
+  transition-delay: 200ms;
+}
+.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+.input-bar {
+  border: 1px solid #ffffff00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input-bar .input-search {
+  width: 600px;
+  height: 35px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: none;
+  font-size: large;
+  letter-spacing: 1.5px;
+  padding: 5px 15px;
+  color: #fff;
+  outline: none;
+}

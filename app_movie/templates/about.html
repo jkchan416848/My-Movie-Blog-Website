@@ -1,0 +1,60 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block title %}
+<title>About-page</title>
+{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+{% block home %}
+    <h1 class="about-heading">Project Overview: <span style="color: red;">🎬 JK</span>-<span style="color: rgb(154, 226, 226);">Movie Blog</span> 🎬</h1> <br><br><br>
+<div class="total-about-page"><hr>
+<h3>1. Django Setup</h3>
+<p class="para">
+    <h4>Installation:</h4><p class="para"> First, you install Django using pip (pip install django).</p>
+<h4>Project Creation:</h4> <p class="para">Create a new Django project (django-admin startproject jk_movie_blog).</p>
+<h4>App Creation:</h4> <p class="para">
+    Inside your project, create a Django app for your movie-related functionality (python manage.py startapp movies).
+</p>
+</p> <br><br>
+<h3>2. Static Files</h3>
+<p class="para">
+    Purpose: Static files are used for CSS, JavaScript, images, etc., to style and enhance the frontend of your website.
+</p>
+<h4>Configuration: </h4>
+<p class="para">
+    Ensure 'django.contrib.staticfiles' is in your INSTALLED_APPS in settings.py.
+    Define STATIC_URL and either STATICFILES_DIRS for development or STATIC_ROOT for production to specify where Django should look for static files.
+</p>
+<h4>Usage:</h4>
+<p class="para">
+    Place your CSS file (trailer.css, for example) in a directory named static inside your app (movies/static/css/trailer.css).
+Link to this CSS file in your templates using {% static 'css/trailer.css' %}.
+</p> <br><br>
+<h3>3. Dynamic Functionality</h3>
+<p class="para">
+    <h4>Models:</h4> <p class="para">
+        Define Django models in movies/models.py for entities like Movie with fields such as title, trailer_link, description, etc.
+    </p>
+</p>
+<p class="para">
+   <h4> Views:</h4>
+<p class="para">
+    Create views (movies/views.py) to handle requests related to movies.
+Implement functions to fetch data from the database and render templates dynamically.
+</p></p>
+   <h4> Templates:</h4>
+   <p class="para">
+Create HTML templates (templates directory inside your app) for rendering pages.
+Extend base templates (navigation.html, for example) to maintain consistent structure across pages.
+</p>
+   <h4> Routing:</h4>
+   <p class="para">
+Define URL patterns (movies/urls.py) to map URLs to views.
+Include these URLs in the project's main urls.py (urlpatterns).
+</p>
+</div>
+{% endblock %}
+{% block script %}
+<script defer src="{% static 'js/about.js' %}"></script>
+{% endblock %}

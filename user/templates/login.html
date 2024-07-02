@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <div class="logo"><i class="fa-brands fa-pied-piper-alt" style="color: #dc3838;"></i></div>
+   <div class="log-in-title">
+    <h2>If you already Register Kindly <span style="color: cornflowerblue;"> Log-in  </span>(full access)</h2>
+   </div>
+   <div class="login-form">
+    <form action="" method="post" id="log-in-form">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table> <br>
+        <div style="border: 1px solid rgba(255, 255, 255, 0); text-align: center; margin-top: 20px;"><input type="submit" value="Log-in" class="log-in-button"></div>
+    </form> <br>
+   </div>
+    <a href="/main/">Skip ></a>
+    <script src="https://kit.fontawesome.com/fa98085b76.js"
+    crossorigin="anonymous"></script>   
+    <script defer src="{% static 'js/login.js' %}">
+    </script>
+</body>
+</html>

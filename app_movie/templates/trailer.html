@@ -1,0 +1,42 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block title %}
+<title>Trailers</title>
+{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/trailer.css' %}">
+{% endblock %}
+{% block home %} <br>
+<div class="input-bar">
+    <form action="" method="post">
+        {% csrf_token %}
+        <label id="get_movie_trailer"></label>
+        <input type="text" name="get_movie_trailer" class="input-search" placeholder="Search Movie Trailer..." value="" autocomplete="off">
+        <input type="submit" value="Search" hidden autocomplete="off">
+    </form>
+</div>
+<br><br><br>
+{% if search %}
+<div class="searchable-movie">
+{% for i in search %}
+<div>
+    <h1 class="movie_heading">🎥Watch <span style="color: rgba(255, 0, 0, 0.805);">{{i.Movie_Title}}</span> Movie Trailer 👇</h1> <br><br>
+    <div class="movie_trailer">
+        {{i.Movie_Trailer_link|safe}}
+    </div>
+</div>
+{% endfor %}
+</div>
+{% else %}
+<h1 class="trailer-heading">- View latest Movie <span style="color: rgba(255, 0, 0, 0.816);">Trailer </span> 🎞 -</h1> 
+<br><br>
+<h1 class="movie_heading">🎥Watch <span style="color: rgba(255, 0, 0, 0.805);">{{data.Movie_Title}}</span> Movie Trailer 👇</h1> <br><br>
+<div class="movie_trailer">
+    {{data.Movie_Trailer_link|safe}}
+</div>
+{% endif %}
+ <br><br>
+{% endblock %}
+{% block script %}
+<script defer src="{% static 'js/trailer.js' %}"></script>
+{% endblock %}

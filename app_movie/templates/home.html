@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>Home</title>
+    {% endblock %}
+</head>
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<body> 
+  <!-- random-images-container -->
+<h1 style="color: #fff;">🎞 <span style="color: red;">Newly</span> Added Movie 👇</h1>
+<div id="random-images">
+  {% for i in rand_img %}
+  <div data-movieposter="{{i.Movie_Poster.url}}" data-id="{{i.id}}" style="background-image: url('{{i.Movie_Poster.url}}');" id="random-images-container">
+    <div class='gradient-overlay'>
+      <h1>- {{i.Movie_Title}}- </h1>
+      <a href="{% url 'fulldetails' id=i.id %}" target="_blank">Watch more</a>
+    </div>
+  </div>
+  {% endfor %}
+</div> <br><br><br>
+<!-- all movie image container -->
+<h1 class="home-page-heading" style="color:rgb(200, 215, 209);">🎉 All Movies Collections</h1>
+<div class="main_movie_card">
+{% for i in data %}
+<div id="Movie_card" class="hidden">
+    <div data-movieposter1="{{i.Movie_Poster}}" data-title1="{{i.Movie_Title}}" data-id1="{{i.id}}" style="background-image: url({{i.Movie_Poster.url}});" id="random-images-container1">
+    </div>
+        <h3 data-title="{{i.Movie_Title}}">-{{i.Movie_Title}}-</h3>
+        <h4 style="font-weight: 400;">Rating: ⭐{{i.Movie_Rating}}/5</h4>
+        <a href="{% url 'fulldetails' id=i.id %}" target="_blank">More details</a>
+</div>
+{% endfor %}
+</div>
+{% block script %}
+<script defer src="{% static 'js/home.js' %}">
+</script>
+{% endblock %}
+</body>
+</html>

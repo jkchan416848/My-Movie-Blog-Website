@@ -1,0 +1,28 @@
+body {
+  font-family: "Overlock SC", sans-serif;
+  margin: 0px;
+  padding: 0px;
+  scroll-behavior: smooth;
+  background-image: linear-gradient(
+    to left,
+    #000000,
+    #130f40,
+    #000000,
+    #130f40,
+    #000000,
+    #000000
+  );
+  background-size: 300% 300%;
+  animation: colors 20s ease-in-out infinite;
+}
+@keyframes colors {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}

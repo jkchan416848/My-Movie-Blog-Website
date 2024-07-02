@@ -1,0 +1,58 @@
+body {
+  scroll-behavior: smooth;
+  background-image: linear-gradient(
+    to left,
+    #000000,
+    #130f40,
+    #000000,
+    #130f40,
+    #000000,
+    #000000
+  );
+  background-size: 300% 300%;
+  animation: colors 20s ease-in-out infinite;
+}
+@keyframes colors {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+.about-heading {
+  text-align: center;
+  color: #fff;
+}
+.total-about-page h3 {
+  color: rgb(221, 221, 221);
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
+}
+.total-about-page {
+  border: 1px solid rgba(255, 255, 255, 0);
+  padding: 5px 20px;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.total-about-page h4 {
+  color: rgb(97, 86, 201);
+  font-size: x-large;
+}
+.total-about-page p {
+  color: chocolate;
+  padding: 0 50px 0 50px;
+}
+.para {
+  color: chocolate;
+  font-weight: 900;
+  word-spacing: 2px;
+}

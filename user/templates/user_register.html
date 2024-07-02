@@ -1,0 +1,20 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block title %}
+    <title>Register-form</title>
+{% endblock %}
+{% block link %}    
+<link rel="stylesheet" href="{% static 'css/user_register.css' %}">
+{% endblock %}
+{% block home %}
+    <h1 class="register-title">User-Register form </h1>
+    <div class="register-form">
+        <form action="" method="post">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+            </table>
+            <input type="submit" value="Register" id="register-button">
+        </form>
+    </div>
+{% endblock %}    

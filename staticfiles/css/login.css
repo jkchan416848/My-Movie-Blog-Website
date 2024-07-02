@@ -1,0 +1,125 @@
+body {
+  font-family: "Overlock SC", sans-serif;
+  margin: 0px;
+  padding: 0px;
+  scroll-behavior: smooth;
+  background-image: linear-gradient(
+    to left,
+    #000000,
+    #130f40,
+    #000000,
+    #130f40,
+    #000000,
+    #000000
+  );
+  background-size: 300% 300%;
+  animation: colors 20s ease-in-out infinite;
+  color: #ffffffcb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+@keyframes colors {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+.login-form {
+  border: 1px solid #00000000;
+  font-size: 1.3em;
+  font-weight: lighter;
+  padding: 10px;
+}
+.login-form form{
+  display: flex;
+  margin: 5px 10px 5px 10px;
+  padding-left: 200px;
+  justify-content:center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+}
+.login-form h1 {
+  text-transform: capitalize;
+  color: cornflowerblue;
+}
+.login-form table tbody tr {
+  padding: 20px;
+}
+.login-form table tbody tr th label {
+  color: rgba(110, 243, 232, 0.699);
+  font-weight: 800;
+  font-size: larger;
+  padding: 10px;
+  letter-spacing: 2px;
+}
+#id_username {
+  border: none;
+  background: none;
+  border-bottom: 1px solid #ffffffd3;
+  font-size: larger;
+  letter-spacing: 4px;
+  color: #fff;
+  padding: 2px 10px;
+  transition: 0.2s;
+}
+#id_username:focus {
+  outline-style: none;
+  border-color: red;
+}
+#id_password {
+  border: none;
+  background: none;
+  border-bottom: 1px solid #ffffffd3;
+  font-size: larger;
+  letter-spacing: 4px;
+  color: #fff;
+  transition: 0.2s;
+  padding: 2px 10px;
+}
+#id_password:focus {
+  outline-style: none;
+  border-color: red;
+}
+h2 {
+  color: rgba(255, 255, 255, 0.733);
+  
+}
+.log-in-title{
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0);
+  padding: 5px;
+  padding-left: 50px;
+  margin: 2px 10px 2px 30px;
+}
+.log-in-button {
+  width: 100px;
+  text-align: center;
+  padding: 2px;
+  border: none;
+  background-color: cornflowerblue;
+  color: #000000;
+  font-weight: 400;
+  border-radius: 5px;
+  font-size: 0.9em;
+  transition: 0.05s;
+}
+.log-in-button:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+.logo {
+  font-size: 3em;
+}
+a {
+  text-transform: lowercase;
+  text-decoration: underline #fff;
+}

@@ -1,0 +1,45 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block title %}
+<title>Movie-review</title>
+{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/review.css' %}">
+{% endblock %}
+{% block home %}
+<br>
+<div class="input-bar">
+    <form action="" method="post">
+        {% csrf_token %}
+        <label id="get_movie"></label>
+        <input type="text" name="get_movie" class="input-search" placeholder="Search Movie Name..." value="">
+        <input type="submit" value="Search" hidden autocomplete="off">
+    </form>
+</div>
+<br><br><br>
+{% if name %}
+<div class="searchable-movie">
+{% for i in name %}
+<div>
+        <img src="{{i.Movie_Poster.url}}" alt="" width="100%" title="{{i.Movie_Title}}"><br>
+        <a href="{% url 'fulldetails' id=i.id %}" target="_blank">watch More</a>
+</div>
+{% endfor %}
+</div>
+{% endif %}
+<div class="review-main-page">
+    {% if data %}
+<h1 class="review-movie-title"> Latest-Review <span style="color: rgba(255, 0, 0, 0.801);">{{data.Movie_Title}}</span></h1>
+<div class="review-movie-poster">
+    <span><a href="{% url 'fulldetails' id=data.id %}" target="_blank">
+        <img src="{{data.Movie_Poster.url}}" style="width: 35%;" title="{{data.Movie_Title}}"></img>
+            </a>
+    </span>
+</div>
+<br><br><br>
+    {% endif %}
+</div>
+{% endblock %}
+{% block script %}
+<script defer src="{% static 'js/review.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>Navigation</title>{% endblock%}
+</head>
+<link rel="stylesheet" href="{% static 'css/nav.css' %}">
+{% block link %}
+{% endblock %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overlock+SC&display=swap" rel="stylesheet">
+<body>
+    <div class="Main">
+        <div class="Title">
+            <div class="webpage-title">
+                <h1 id="main-head"><i class="fa-brands fa-pied-piper-alt" style="color: #dc3838;"></i> <span style="color: red;">JK</span> - Movie Blog</h1>
+                <p id="sub-head">- The Best Website for Movies review -</p>
+            </div>
+                <div class="log-information-div">
+                    {% if request.user.is_authenticated %}
+                        <span style="font-weight: 400; color: #dfcece;"><i class="fa-solid fa-user-check" style="color: #3fa937;"></i> {{request.user}}</span>
+                        <a href="{% url 'logout' %}" style="background-color: red; color: #fff;">Log-out</a>
+                        <a href="{% url 'upload' %}" style="background-color:seagreen; color: #fff;" target="_blank">Upload</a>
+                    {% else %}
+                        <a href="{% url 'register' %}" style="background-color: rgba(76, 0, 130, 0.555); color: #fff;">Register</a>
+                        <a href="{% url 'login' %}" style="background-color: rgba(39, 206, 24, 0.555); color: #fff;" target="_blank">Log-in</a>
+                    {% endif %}
+                </div>
+        </div>
+    </div>
+    <div class="Main-Navigation">
+        <a href="{% url 'main' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'review' %}">Review</a>
+        <a href="{% url 'trailer' %}">Trailers</a>
+        <a href="{% url 'contect' %}">Contact</a>
+    </div>
+    {% block home %}
+    <!-- your code  -->
+    {% endblock %}
+    <script defer src="{% static 'js/navigation.js' %}"></script>
+    {% block script %}
+    {% endblock %}
+    <script src="https://kit.fontawesome.com/fa98085b76.js"
+      crossorigin="anonymous"></script>
+</body>
+</html>
