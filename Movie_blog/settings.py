@@ -29,7 +29,7 @@ TEMPLATES_user_DIRS = os.path.join(BASE_DIR,'user','templates')
 SECRET_KEY = 'django-insecure-!$a*$adudedi4@o(304w@&_^q1+y50=r25=l+kwycmr(e6)ft9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app_movie',
-    'user'
+    'user',
+    'whitenoise.runserver_nostatic'
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Movie_blog.urls'
@@ -126,6 +128,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATICFILES_DIRS = [STATIC_DIRS]
+STATICFILES_STORAGE = 'Whitenoise.storage.CompressedManifestStaticFilesStorages'
 MEDIA_URL = 'media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
